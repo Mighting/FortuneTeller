@@ -1,5 +1,7 @@
 package zbc.assignment.fortuneteller;
 
+
+//I did not create this call, it was created using POJO
 public class Fortune
 {
     private String fortune;

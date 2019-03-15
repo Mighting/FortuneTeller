@@ -24,12 +24,16 @@ public class MainActivity extends AppCompatActivity implements FortunePresenter.
         fortunePresenter = new FortunePresenter(this);
 
     }
+
+    //Method that gets called when the user clicks on the button
     public void onGetFortuneClick(View view) throws IOException {
+        //Calls the presenter to get the HTTP call
         fortunePresenter.GetUrlRequest();
 
     }
 
 
+    //Update text view
     @Override
     public void updateText(Fortune fortune) {
         fortuneView.setText(fortune.getFortune());

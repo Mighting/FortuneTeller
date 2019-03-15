@@ -1,7 +1,6 @@
 package zbc.assignment.fortuneteller;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,20 +22,22 @@ public class HTTPRequest extends AsyncTask<String, Void, Void> {
         this.fortunePresenter = fortunePresenter;
     }
 
+    //What the task do when called
     @Override
     protected Void doInBackground(String... strings) {
         try {
+            //the API i want to call
             url = new URL("http://yerkee.com/api/fortune");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             json = convertInputStreamToString(inputStream);
-            Log.e("tg", "doInBackground: call");
         } catch (IOException ex) {
 
         }
         return null;
     }
 
+    //Convert Inputstream into a string so i can work with it
     private String convertInputStreamToString(InputStream inputStream) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder sb = new StringBuilder();
@@ -51,18 +52,15 @@ public class HTTPRequest extends AsyncTask<String, Void, Void> {
         return sb.toString();
     }
 
+    //Gets called when the task IS DONE with whatever i told it to do
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-
-        //Use Gson here
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
 
         Fortune fortuneintextform = gson.fromJson(json,Fortune.class);
-
-        //Log.e("tg", fortuneintextform.getFortune());
 
         fortunePresenter.SetFortune(fortuneintextform);
     }
