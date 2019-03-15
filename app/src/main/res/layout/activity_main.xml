@@ -7,34 +7,14 @@
     android:background="@color/mysticPurple"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/FortuneTextView"
-        android:layout_width="252dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:shadowColor="@color/black"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:shadowRadius="2"
-        android:text="Vil du også vide din fremtid?"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/FortuneTellerImage"
         android:layout_width="252dp"
         android:layout_height="194dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FortuneTextView"
         app:srcCompat="@drawable/ic_fortunetellersvg" />
@@ -48,17 +28,36 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/mysticBlue"
+        android:onClick="onGetFortuneClick"
         android:shadowColor="@color/black"
         android:shadowDx="5"
         android:shadowDy="5"
         android:shadowRadius="2"
         android:text="Få en spådom"
         android:textColor="@color/white"
-        android:onClick="onGetFortuneClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FortuneTellerImage"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.485" />
+
+    <TextView
+        android:id="@+id/FortuneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="259dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="2"
+        android:text="Vil du også vide din fremtid?"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

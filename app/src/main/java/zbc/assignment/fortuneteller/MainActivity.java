@@ -2,12 +2,13 @@ package zbc.assignment.fortuneteller;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FortunePresenter.View {
 
     FortunePresenter fortunePresenter;
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         fortuneView = findViewById(R.id.FortuneTextView);
 
-        fortunePresenter = new FortunePresenter();
+        fortunePresenter = new FortunePresenter(this);
 
     }
     public void onGetFortuneClick(View view) throws IOException {
@@ -28,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void updateText(Fortune fortune){
-        fortuneView.setText(fortune.toString());
+
+    @Override
+    public void updateText(Fortune fortune) {
+        fortuneView.setText(fortune.getFortune());
+        fortuneView.setTextSize(20);
+        Log.e("tg", fortune.getFortune() );
     }
-
-
-
-
 }

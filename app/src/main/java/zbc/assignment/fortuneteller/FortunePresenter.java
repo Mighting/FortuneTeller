@@ -1,11 +1,9 @@
 package zbc.assignment.fortuneteller;
 
-import java.io.IOException;
-
 public class FortunePresenter {
 
-    public interface View{
-        void updateText();
+    public interface View {
+        void updateText(Fortune fortune);
     }
 
 
@@ -16,15 +14,14 @@ public class FortunePresenter {
     }
 
 
-    HTTPRequest httpRequest = new HTTPRequest(this);
     Fortune fortune = new Fortune();
 
-    public void GetUrlRequest()throws IOException {
+    public void GetUrlRequest() {
+        HTTPRequest httpRequest = new HTTPRequest(this);
         httpRequest.execute();
     }
 
-    public void SetForune(Fortune fortune){
-        //CAL THE FORTUNE........................................
-        
+    public void SetFortune(Fortune fortune) {
+        view.updateText(fortune);
     }
 }
